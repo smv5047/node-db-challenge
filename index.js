@@ -1,9 +1,15 @@
 const express = require("express")
 const app = express()
-//Import Router
+
+//Routers
+const ProjectRouter = require('./projects/projects-router')
+const ResourceRouter = require('./resources/resources-router')
+const TaskRouter = require('./tasks/tasks-router')
 
 app.use(express.json())
-//app.use(')
+app.use('/api/project', ProjectRouter)
+app.use('/api/resource', ResourceRouter)
+app.use('/api/task', TaskRouter)
 
 const PORT = process.env.PORT || 4010
 
